@@ -1,5 +1,50 @@
+var FA = new Array //表示させたいRSSフィードのURLを配列に代入
+("http://feedblog.ameba.jp/rss/ameblo/asakaza1224/rss20.xml",
+"http://tequila73.at.webry.info/rss/index.rdf",
+"http://nke.seesaa.net/index20.rdf");
 
-google.load("feeds","1");
+
+
+$.ajax({
+url:FA[0];
+success: function(){
+	alert(FA[0]);
+
+}
+});
+
+/*$.ajax({
+//var htmlstr = "";
+//htmlstr += '<div>';
+//htmlstr += '<ul>';
+
+
+
+/*for (var k=0; k<FA.length; k++) {
+
+	var rss_url = FA[k];
+	$.get(rss_url, function(data) {
+		$(data).find("item").each(function (i) { // or "entry"
+		var el = $(this);
+
+
+
+//		htmlstr += '<a href="' + el.find("link").text() + '" title="' + el.find("title").text() + '" rel="nofollow" target="_blank">' + el.find("title").text() + ' - ' + el.find("category").text() + '</a>';
+//		htmlstr += '</li>';
+	});
+});*/
+
+
+//htmlstr += '</ul>';
+//htmlstr += '</div>';
+
+//var container = document.getElementById("aq_feed");
+//container.innerHTML = htmlstr;
+
+//});
+
+
+/* google.load("feeds","1");
 var FA = new Array //表示させたいRSSフィードのURLを配列に代入
 ("http://feedblog.ameba.jp/rss/ameblo/asakaza1224/rss20.xml",
 "http://tequila73.at.webry.info/rss/index.rdf",
@@ -10,6 +55,7 @@ function initialize() {
 	var numEntr = 3; //各RSSフィードの取得件数
 	var container = document.getElementById("feed");
 	var cnt = FA.length;
+
 	for (var k=0; k<FA.length; k++) {
 		var feed = new google.feeds.Feed(FA[k]);
 		feed.setNumEntries(numEntr);
@@ -55,3 +101,4 @@ function initialize() {
 	}
 }
 google.setOnLoadCallback(initialize);
+*/
