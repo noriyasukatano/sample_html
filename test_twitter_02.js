@@ -9,20 +9,9 @@ var client = new twitter({
     access_token_secret: 'ozZoMYM6aMDus4vLVewQQLSdhTONs3AEBzsuzY11EsHrw'
 });
 
-/*// Public APIのstatuses/filterで取得したタイムラインを、自分のアカウント名を含む文字列でフィルターする
-client.stream( 'statuses/filter', { track : '@norizou4' }, function( stream ) {
-    // フィルターされたデータのストリームを受け取り、ツイートのテキストを表示する
-    stream.on( 'data', function( data ) {
-        var text = data.text; // ツイートのテキスト
-        var textCleaned = text.replace( /@norizou4/g, "" ); // アカウント名は不要
-        console.log( textCleaned );
-    });
-});*/
-
-client.post('statuses/update',
-        {status: 'Hello world (このツイートはテストです)'},
-        function(error, tweet, response) {
-        if (!error) {
-            console.log(tweet)
-        }
-      });
+var params = {screen_name: 'nodejs'};
+client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  if (!error) {
+    console.log(tweets);
+  }
+});
